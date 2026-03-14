@@ -1,0 +1,153 @@
+<section class="location-hero">
+  <div class="bg-pattern"></div>
+  <div class="blob-accent"></div>
+
+  <div class="container relative">
+    <div class="content">
+      <div class="badge-wrapper">
+        <span class="badge">📍 Encuéntranos</span>
+      </div>
+
+      <h1 class="title">
+        Ubicación <span class="text-serif">&</span> Horarios
+      </h1>
+
+      <p class="description">
+        Te esperamos en nuestro espacio diseñado para tu relax. Ven y vive la
+        experiencia Savec en el corazón de Villa El Salvador.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-hero {
+    position: relative;
+    padding: 10rem 1.5rem 8rem;
+    background: var(--gradient-cream);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    z-index: 10;
+  }
+
+  .bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    background-image: radial-gradient(var(--primary) 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+  }
+
+  .blob-accent {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-rose);
+    filter: blur(80px);
+    opacity: 0.1;
+    border-radius: 50%;
+  }
+
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .badge-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .badge {
+    padding: 0.5rem 1.25rem;
+    background: white;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-serif {
+    font-family: serif;
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: var(--muted-text);
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .scroll-indicator {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+  }
+
+  .mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--text-main);
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-anim 2s infinite;
+  }
+
+  @keyframes scroll-anim {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, 15px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .location-hero {
+      padding: 8rem 1.5rem 6rem;
+    }
+  }
+</style>

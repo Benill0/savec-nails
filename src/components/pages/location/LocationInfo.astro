@@ -1,0 +1,356 @@
+---
+import { contactInfo } from "../../../data/contact";
+---
+
+<section class="location-info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="card-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Dirección</h3>
+          <p class="card-text">{contactInfo.address}</p>
+          <a
+            href={contactInfo.googleMaps}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card-link"
+          >
+            Ver en Google Maps →
+          </a>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Horario de atención</h3>
+          <ul class="schedule-list">
+            {
+              contactInfo.schedule.map((item) => (
+                <li class="schedule-item">
+                  <span class="schedule-day">{item.day}</span>
+                  <span class="schedule-divider" />
+                  <span class="schedule-hours">{item.hours}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.91Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Contacto</h3>
+          <a href={`tel:${contactInfo.phone}`} class="contact-line"
+            >{contactInfo.phone}</a
+          >
+          <a href={`mailto:${contactInfo.email}`} class="contact-line"
+            >{contactInfo.email}</a
+          >
+          <a
+            href={contactInfo.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card-link"
+          >
+            Escribir por WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrapper">
+      <div class="map-header">
+        <span class="map-label">📍 Nuestra ubicación</span>
+      </div>
+      <div class="map-frame">
+        <iframe
+          title="Savec Nails - Ubicación en mapa"
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${contactInfo.coords.lng - 0.005}%2C${contactInfo.coords.lat - 0.003}%2C${contactInfo.coords.lng + 0.005}%2C${contactInfo.coords.lat + 0.003}&layer=mapnik&marker=${contactInfo.coords.lat}%2C${contactInfo.coords.lng}`}
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+      <div class="map-footer">
+        <a
+          href={contactInfo.googleMaps}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-maps"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-info {
+    padding: 5rem 1.5rem 6rem;
+    background: var(--background);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    display: flex;
+    gap: 1.25rem;
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .info-card:hover {
+    box-shadow: var(--shadow-rose);
+    transform: translateY(-3px);
+  }
+
+  .card-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--secondary);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-text);
+  }
+
+  .card-text {
+    font-size: var(--text-base);
+    color: var(--text-main);
+    line-height: 1.5;
+  }
+
+  .card-link {
+    margin-top: 0.25rem;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .card-link:hover {
+    opacity: 0.75;
+  }
+
+  /* Schedule */
+  .schedule-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .schedule-day {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-main);
+    min-width: 80px;
+  }
+
+  .schedule-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 20px;
+  }
+
+  .schedule-hours {
+    font-size: var(--text-sm);
+    color: var(--muted-text);
+  }
+
+  /* Contact lines */
+  .contact-line {
+    font-size: var(--text-base);
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+  }
+
+  .contact-line:hover {
+    color: var(--primary);
+  }
+
+  .map-wrapper {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .map-header {
+    padding: 1rem 1.5rem;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .map-label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--muted-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .map-frame {
+    width: 100%;
+    height: 420px;
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .map-footer {
+    padding: 1rem 1.5rem;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--gradient-rose);
+    color: var(--primary-text);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: 9999px;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+    box-shadow: var(--shadow-rose);
+  }
+
+  .btn-maps:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .map-frame {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .location-info {
+      padding: 3.5rem 1.25rem 4rem;
+    }
+
+    .info-card {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+</style>
