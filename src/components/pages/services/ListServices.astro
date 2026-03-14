@@ -1,0 +1,137 @@
+---
+import { contactInfo } from "../../../data/contact";
+import { services } from "../../../data/services";
+import ServiceCard from "../../common/ServiceCard.astro";
+
+const whatsAppLink = contactInfo.whatsapp + "?text=Hola, quiero reservar";
+---
+
+<section class="all-services">
+  <div class="container">
+    <header class="section-header">
+      <span class="subtitle">Catálogo Completo</span>
+      <h1 class="title">Nuestros Servicios</h1>
+      <p class="intro-text">
+        Desde el cuidado especializado de tus uñas hasta transformaciones
+        capilares de vanguardia.
+      </p>
+    </header>
+
+    <div class="services-grid">
+      {
+        services.map((service, index) => (
+          <ServiceCard
+            title={service.name}
+            icon={`lucide:${service.icon}`}
+            index={index}
+          />
+        ))
+      }
+    </div>
+    <div class="cta-wrapper">
+      <p class="cta-note">¿No encuentras lo que buscas?</p>
+      <a
+        href={whatsAppLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-booking">Consultar por WhatsApp</a
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .all-services {
+    padding: 8rem 1.5rem 5rem;
+    background-color: var(--background);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .intro-text {
+    margin-top: 1rem;
+    color: var(--muted-text);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .subtitle {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .cta-wrapper {
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 3rem;
+  }
+
+  .cta-note {
+    color: var(--muted-text);
+    margin-bottom: 1rem;
+  }
+
+  .btn-booking {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-rose);
+    color: white;
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-rose);
+    transition: all 0.3s ease;
+  }
+
+  .btn-booking:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-rose-lg);
+  }
+
+  @media (width >= 40rem) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,115 @@
+---
+// Importa tus imágenes aquí
+const hairSalonImg =
+  "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1000";
+const logoCorteColor = "/logo.webp";
+---
+
+<section class="service-hero">
+  <div class="background-container">
+    <img src={hairSalonImg} alt="Estudio Corte y Color" class="bg-image" />
+    <div class="overlay"></div>
+  </div>
+
+  <div class="container content-wrapper">
+    <img
+      src={logoCorteColor}
+      alt="Estudio Corte y Color Logo"
+      class="logo-hero"
+    />
+
+    <span class="badge">Estudio Corte y Color</span>
+    <h1 class="title">Salón de Belleza Capilar</h1>
+    <p class="description">
+      Espacio especializado en servicios capilares profesionales, donde
+      transformamos tu cabello con técnicas modernas y atención personalizada.
+    </p>
+  </div>
+</section>
+
+<style>
+  .service-hero {
+    position: relative;
+    padding: 8rem 1.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+  }
+
+  .background-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+  }
+
+  .logo-hero {
+    height: 5rem;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--primary-light, #ffcbd2); /* text-rose-glow */
+    margin-bottom: 0.75rem; /* mb-3 */
+    font-family: var(--font-body);
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    line-height: 1.2;
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8); /* text-primary-foreground/80 */
+    max-width: 36rem; /* max-w-xl */
+    margin: 0 auto;
+    line-height: 1.625; /* leading-relaxed */
+  }
+
+  /* RESPONSIVE */
+  @media (min-width: 768px) {
+    .title {
+      font-size: 3.5rem; /* md:text-5xl */
+    }
+
+    .service-hero {
+      padding: 10rem 1.5rem;
+    }
+  }
+</style>

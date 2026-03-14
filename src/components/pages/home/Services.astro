@@ -1,18 +1,11 @@
 ---
 import { contactInfo } from "../../../data/contact";
+import { services } from "../../../data/services";
 import ServiceCard from "../../common/ServiceCard.astro";
 import SectionHeading from "../../SectionHeading.astro";
 
-const featuredServices = [
-  "Manicura Rusa",
-  "Pedicura Spa",
-  "Soft Gel",
-  "Uñas Acrílicas",
-  "Polygel",
-  "Diseño High-End",
-  "Baño de Gel",
-  "Retirado Seguro",
-];
+const whatsAppLink = contactInfo.whatsapp + "?text=Hola, quiero reservar";
+const featuredServices = services.filter((service) => service.featured);
 ---
 
 <section class="featured-services">
@@ -26,14 +19,18 @@ const featuredServices = [
     <div class="services-grid">
       {
         featuredServices.map((service, index) => (
-          <ServiceCard title={service} index={index} icon="lucide:sparkles" />
+          <ServiceCard
+            title={service.name}
+            icon={`lucide:${service.icon}`}
+            index={index}
+          />
         ))
       }
     </div>
 
     <div class="cta-wrapper">
       <a
-        href={contactInfo.whatsapp}
+        href={whatsAppLink}
         target="_blank"
         rel="noopener noreferrer"
         class="btn-cta"
