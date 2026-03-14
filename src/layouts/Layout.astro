@@ -1,23 +1,55 @@
+---
+import Footer from "../components/common/Footer.astro";
+import Header from "../components/common/Header.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  @import url("../styles/colors.css");
+  @import url("../styles/normalize.css");
+  @import url("../styles/font-weights.css");
+  @import url("../styles/font-sizes.css");
+  @import url("../styles/border.css");
+
+  :root {
+    --font-family: "Montserrat Variable", sans-serif;
+    --max-width: 75rem;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    height: 100%;
+  }
+
+  main {
+    min-height: calc(100dvh - 73px);
+  }
 </style>

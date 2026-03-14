@@ -1,0 +1,133 @@
+---
+import { navItems } from "../../data/navigation";
+
+const { pathname } = Astro.url;
+
+const currentPath = pathname.replace(/\/$/, "") || "/";
+
+const linkContact =
+  "https://wa.me/51999999999?text=Hola%2C%20quiero%20reservar%20una%20cita";
+---
+
+<header class="navbar">
+  <div class="header-container">
+    <a href="/" class="logo">
+      SAVEC<span>NAILS</span>
+    </a>
+
+    <nav class="nav-links">
+      {
+        navItems.map((item) => (
+          <a
+            class="link"
+            href={item.href}
+            data-selected={currentPath === item.href}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+      <a
+        href={linkContact}
+        class="btn-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar Cita
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 4.5rem;
+    /* Usando tus variables de fondo con transparencia */
+    background-color: hsla(20, 25%, 97%, 0.85);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .header-container {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.02);
+  }
+
+  .logo span {
+    color: var(--primary);
+    margin-left: 2px;
+  }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .link {
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--muted-text);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .link:hover,
+  .link[data-selected="true"] {
+    color: var(--primary);
+  }
+
+  .btn-cta {
+    text-decoration: none;
+    font-size: var(--text-sm);
+    background: var(--gradient-rose);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--rounded-full);
+    font-weight: 600;
+    box-shadow: var(--shadow-rose);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-rose-lg);
+    filter: brightness(1.05);
+  }
+
+  .btn-cta:active {
+    transform: translateY(-1px);
+  }
+
+  @media (width >= 64rem) {
+    /* Large devices (lg) - >= 64rem (>= 1024px) */
+    .nav-links {
+      display: flex;
+    }
+  }
+</style>

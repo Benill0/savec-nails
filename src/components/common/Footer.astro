@@ -1,0 +1,189 @@
+---
+import { Icon } from "astro-icon/components";
+import { contactInfo } from "../../data/contact";
+import { navItems } from "../../data/navigation";
+import { socialLinks } from "../../data/socials";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img src="/logo-white.png" alt="Savec Nails" class="logo-placeholder" />
+      </div>
+      <p class="slogan">
+        Belleza en cada detalle.<br />
+        Donde cada detalle cuenta.
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <h4>PÁGINAS</h4>
+      <nav>
+        {navItems.map((link) => <a href={link.href}>{link.name}</a>)}
+      </nav>
+    </div>
+
+    <div class="footer-social">
+      <h4>SÍGUENOS</h4>
+      <div class="social-icons">
+        {
+          socialLinks.map((social) => (
+            <a
+              href={social.href}
+              aria-label={social.name}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={social.icon} />
+            </a>
+          ))
+        }
+      </div>
+      <a href={contactInfo.whatsapp} class="btn-footer"> Reservar Cita </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} Savec Nails. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--text-main);
+    color: var(--secondary);
+    padding: 5rem 2rem 2rem;
+  }
+
+  .footer-container {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-placeholder {
+    width: 60px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .slogan {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    opacity: 0.7;
+    color: #ffffff;
+  }
+
+  /* Navegación */
+  h4 {
+    font-size: var(--text-sm);
+    letter-spacing: 0.1rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: var(--font-bold);
+  }
+
+  .footer-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: white;
+    opacity: 1;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  [data-icon] {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .btn-footer {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--gradient-rose);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-rose);
+    transition: all 0.3s ease;
+  }
+
+  .btn-footer:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-rose-lg);
+  }
+
+  /* Copyright */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: var(--font-sm);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (width >= 40rem) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer-nav nav,
+    .footer-social {
+    }
+    .social-icons {
+    }
+  }
+</style>
