@@ -1,0 +1,50 @@
+
+:root {
+  /* Brand Colors */
+  --primary: #e09690;
+  --primary-text: #ffffff;
+  
+  --secondary: #f3eae8;
+  --secondary-text: #493639;
+  
+  --accent: #d3a769;
+  --accent-text: #ffffff;
+
+  /* Base & Surfaces */
+  --background: #f9f7f5;
+  --text-main: #352729;
+  
+  --card: #ffffff;
+  --card-text: #352729;
+  
+  --popover: #ffffff;
+  --popover-text: #352729;
+
+  /* UI Elements */
+  --muted: #eee9e8;
+  --muted-text: #847174;
+  
+  --destructive: #ef4444;
+  --destructive-text: #f8fafc;
+
+  --border: #e7dcda;
+  --input: #e7dcda;
+  --ring: #e09690;
+  
+
+  --shadow-rose: 0 10px 40px -12px hsla(5, 56%, 72%, 0.3);
+  --shadow-rose-lg: 0 20px 60px -15px hsla(5, 56%, 72%, 0.35);
+  
+  
+  --gradient-rose: linear-gradient(135deg, hsl(5 56% 72%), hsl(5 60% 82%));
+  --gradient-cream: linear-gradient(180deg, hsl(30 30% 95%), hsl(20 25% 97%));
+  --gradient-gold: linear-gradient(135deg, hsl(5 56% 72%), hsl(35 55% 62%));
+  
+  --backdrop-blur: blur(12px);
+  --anim-fade-up: fade-up 0.8s ease-out forwards;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
