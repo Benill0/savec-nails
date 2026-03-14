@@ -1,0 +1,91 @@
+<section class="coffee-bar-simple">
+  <div class="container">
+    <div class="icon-wrapper">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="coffee-icon"
+      >
+        <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+        <line x1="6" y1="2" x2="6" y2="4"></line>
+        <line x1="10" y1="2" x2="10" y2="4"></line>
+        <line x1="14" y1="2" x2="14" y2="4"></line>
+      </svg>
+    </div>
+
+    <h2 class="title">Coffee Bar</h2>
+
+    <p class="description">
+      Incluimos una bebida de cortesía para acompañar tu experiencia y hacer de
+      tu visita un momento aún más especial.
+    </p>
+
+    <p class="small-text">
+      Además, dentro del estudio podrás encontrar una discreta selección de
+      accesorios y artículos de belleza disponibles para quienes deseen
+      complementar su visita.
+    </p>
+  </div>
+</section>
+
+<style>
+  .coffee-bar-simple {
+    padding: 6rem 1.5rem;
+    background-color: hsl(30, 30%, 95%);
+    text-align: center;
+  }
+
+  .container {
+    max-width: 36rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-wrapper {
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+  }
+
+  .coffee-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    line-height: 1.625;
+    margin-bottom: 1.25rem;
+  }
+
+  .small-text {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.625;
+    max-width: 90%;
+  }
+
+  @media (min-width: 768px) {
+    .title {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>

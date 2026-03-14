@@ -1,0 +1,43 @@
+<section class="hero">
+  <h2 class="subtitle">SAVEC NAILS</h2>
+  <h1 class="title">Salón de Manicura y Pedicura</h1>
+  <p class="description">
+    Nuestro espacio principal dedicado al cuidado y embellecimiento profesional
+    de manos y pies.
+  </p>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 0.5rem;
+    padding: 10rem 1.5rem;
+    background: var(--gradient-cream);
+  }
+
+  .subtitle {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+  }
+
+  .title {
+    margin: 0.5rem 0;
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-5xl));
+    font-weight: var(--font-bold);
+    color: var(--text-main);
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 auto;
+    width: min(90%, 36rem);
+    font-size: var(--text-base);
+    color: var(--muted-text);
+    line-height: 1.625;
+    text-align: center;
+  }
+</style>
