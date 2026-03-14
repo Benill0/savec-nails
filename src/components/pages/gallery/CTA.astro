@@ -1,0 +1,65 @@
+---
+import { contactInfo } from "../../../data/contact";
+
+const WHATSAPP_LINK = contactInfo.whatsapp + "?text=Hola, quiero reservar";
+---
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">¿Lista para lucir unas uñas perfectas?</h2>
+    <a
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-cta"
+    >
+      Reservar Cita
+    </a>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background-color: var(--background);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: var(--rounded-full);
+    background: var(--gradient-rose);
+    color: white;
+    font-weight: 600;
+    font-family: var(--font-body);
+    text-decoration: none;
+    box-shadow: var(--shadow-rose);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-cta:hover {
+    transform: scale(1.05);
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .cta-title {
+      font-size: 1.875rem; /* md:text-3xl */
+    }
+  }
+</style>
