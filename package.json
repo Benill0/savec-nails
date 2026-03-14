@@ -9,6 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@fontsource-variable/montserrat": "^5.2.8",
+    "@iconify-json/lucide": "^1.2.96",
+    "astro": "^5.17.1",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
