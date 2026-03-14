@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const { icon, title, desc } = Astro.props;
+---
+
+<div class="why-us-card">
+  <div class="icon-container">
+    <Icon name={icon} class="icon" />
+  </div>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-desc">{desc}</p>
+</div>
+
+<style>
+  .why-us-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    animation: var(--anim-fade-up);
+  }
+
+  .icon-container {
+    width: 3rem; /* w-12 */
+    height: 3rem; /* h-12 */
+    border-radius: 50%;
+    background: var(--gradient-rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-rose);
+  }
+
+  .icon {
+    color: var(--primary-text);
+    width: 1.375rem; /* size 22 */
+    height: 1.375rem;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  .card-desc {
+    font-family: var(--font-body);
+    font-size: 0.875rem; /* text-sm */
+    color: var(--muted-text);
+    line-height: 1.6;
+  }
+
+  /* Hover State */
+  .why-us-card:hover {
+    box-shadow: var(--shadow-rose);
+    border-color: rgba(224, 150, 144, 0.2);
+    transform: translateY(-5px);
+  }
+</style>

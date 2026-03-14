@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  icon?: string;
+  index?: number; // Para el delay de la animación
+}
+
+const { title, icon = "lucide:sparkles", index = 0 } = Astro.props;
+---
+
+<div class="service-card" style={`animation-delay: ${index * 100}ms`}>
+  <div class="icon-wrapper">
+    <Icon name={icon} />
+  </div>
+  <h3 class="service-title">{title}</h3>
+</div>
+
+<style>
+  .service-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: var(--anim-fade-up);
+    cursor: default;
+  }
+
+  /* Icono */
+  .icon-wrapper {
+    margin: 0 auto 0.75rem;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  [data-icon] {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.125rem;
+  }
+
+  .service-card:hover {
+    border-color: rgba(224, 150, 144, 0.3);
+    box-shadow: var(--shadow-rose);
+    transform: translateY(-5px);
+  }
+
+  .service-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+const aboutImg =
+  "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=800";
+---
+
+<section class="about-preview">
+  <div class="container">
+    <div class="about-grid">
+      <div class="image-wrapper">
+        <img
+          src={aboutImg}
+          alt="Trabajo de uñas profesional en Savec Nails"
+          class="main-img"
+        />
+        <div class="glow-effect"></div>
+      </div>
+
+      <div class="content-wrapper">
+        <span class="subtitle">Sobre Savec Nails</span>
+        <h2 class="title">El arte de cuidarte</h2>
+        <p class="description">
+          Savec Nails es un espacio especializado en manicura y pedicura
+          profesional, creado para ofrecer una experiencia elegante, segura y
+          personalizada. Cada detalle está pensado para que disfrutes un momento
+          de bienestar mientras realzamos tu belleza natural.
+        </p>
+        <a href="/nosotros" class="btn-border">Conocer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-preview {
+    padding: 5rem 1.5rem;
+    background: var(--gradient-cream);
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    animation: var(--anim-fade-up);
+  }
+
+  .main-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-rose-lg);
+  }
+
+  .glow-effect {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: var(--gradient-rose);
+    opacity: 0.2;
+    filter: blur(2rem);
+    z-index: -1;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: var(--anim-fade-up);
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted-text);
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-border {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+  }
+
+  .btn-border:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-rose);
+  }
+
+  @media (min-width: 48rem) {
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    .title {
+      font-size: var(--text-4xl);
+    }
+
+    .image-wrapper {
+      padding-right: 2rem;
+    }
+  }
+</style>

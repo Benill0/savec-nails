@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="coming-card">
+  <span class="badge-mini">Pronto</span>
+  <div class="icon-box">
+    <Icon name="lucide:clock" />
+  </div>
+  <h3 class="card-title">{title}</h3>
+</div>
+
+<style>
+  .coming-card {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.6); /* bg-card/60 */
+    border: 1px solid var(--border);
+    text-align: center;
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+  }
+
+  .badge-mini {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent); /* Tu color dorado */
+    background-color: rgba(211, 167, 105, 0.1); /* Gold light */
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+  }
+
+  .icon-box {
+    margin: 0 auto 0.75rem;
+    color: var(--accent);
+    display: flex;
+    justify-content: center;
+  }
+
+  [data-icon] {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .card-title {
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    color: var(--text-main);
+  }
+
+  .coming-card:hover {
+    transform: translateY(-3px);
+  }
+</style>

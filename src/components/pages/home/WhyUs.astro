@@ -1,0 +1,84 @@
+---
+import WhyUsCard from "../../common/WhyUsCard.astro";
+import SectionHeading from "../../SectionHeading.astro";
+
+const whyUsData = [
+  {
+    icon: "lucide:award",
+    title: "Alta Calidad",
+    desc: "Productos de primera línea para garantizar durabilidad y salud en tus uñas.",
+  },
+  {
+    icon: "lucide:sparkles",
+    title: "Experiencia",
+    desc: "Personal capacitado en las últimas tendencias y técnicas de nail art.",
+  },
+  {
+    icon: "lucide:shield-check",
+    title: "Higiene",
+    desc: "Protocolos estrictos de esterilización en cada herramienta y proceso.",
+  },
+  {
+    icon: "lucide:heart",
+    title: "Atención",
+    desc: "Un espacio diseñado para tu confort y una experiencia personalizada.",
+  },
+];
+---
+
+<section class="why-us">
+  <div class="container">
+    <SectionHeading
+      subtitle="¿Por qué elegirnos?"
+      title="¿Por qué elegir Savec Nails?"
+    />
+
+    <div class="why-us-grid">
+      {
+        whyUsData.map((item) => (
+          <WhyUsCard icon={item.icon} title={item.title} desc={item.desc} />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* BASE: MOBILE FIRST */
+  .why-us {
+    padding: 5rem 1.5rem;
+    background-color: var(--background);
+  }
+
+  .container {
+    width: min(100%, var(--max-width));
+    display: grid;
+    gap: 3rem;
+    margin: 0 auto;
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+    gap: 1.5rem;
+  }
+
+  /* Tablets (md) */
+  @media (min-width: 48rem) {
+    .why-us-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop (lg) */
+  @media (min-width: 64rem) {
+    .why-us-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .why-us {
+      padding: 7rem 2rem;
+    }
+  }
+</style>

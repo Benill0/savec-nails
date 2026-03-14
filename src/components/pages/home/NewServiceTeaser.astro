@@ -1,0 +1,53 @@
+---
+import ComingSoonCard from "../../common/ComingSoonCard.astro";
+import SectionHeading from "../../SectionHeading.astro";
+
+const comingSoonItems = [
+  "Lifting de Pestañas",
+  "Diseño de Cejas",
+  "Depilación Facial",
+  "Tratamientos Spa",
+];
+---
+
+<section class="coming-soon">
+  <div class="container">
+    <SectionHeading
+      subtitle="Nuevos Servicios en Camino"
+      title="Próximamente"
+      description="Ampliaremos nuestra experiencia de belleza con nuevos servicios diseñados para ti."
+    />
+
+    <div class="coming-grid">
+      {comingSoonItems.map((item) => <ComingSoonCard title={item} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* MOBILE FIRST */
+  .coming-soon {
+    padding: 5rem 1.5rem;
+    background-color: var(--secondary); /* Fondo suave de tu paleta */
+  }
+
+  .container {
+    width: min(100%, var(--max-width));
+    display: grid;
+    gap: 3rem;
+    margin: 0 auto;
+  }
+
+  .coming-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 1rem;
+  }
+
+  /* DESKTOP */
+  @media (min-width: 48rem) {
+    .coming-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+    }
+  }
+</style>

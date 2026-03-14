@@ -1,0 +1,165 @@
+---
+const hairSalonImg =
+  "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1000";
+---
+
+<section class="allied-section">
+  <div class="container">
+    <div class="allied-grid">
+      <div class="content">
+        <header class="header">
+          <span class="subtitle">Negocio Aliado</span>
+          <h2 class="title">Dos espacios, una pasión</h2>
+        </header>
+
+        <p class="main-text">
+          Además de Savec Nails, contamos con un negocio aliado especializado en
+          belleza capilar.
+        </p>
+
+        <div class="specific-business">
+          <h3 class="business-name">Estudio Corte y Color</h3>
+          <p class="business-desc">
+            Espacio profesional dedicado a cortes, coloración y tratamientos
+            capilares personalizados.
+          </p>
+        </div>
+
+        <a href="/corte-y-color" class="btn-outline"> Conocer Corte y Color </a>
+      </div>
+
+      <div class="image-container">
+        <div class="relative-wrapper">
+          <img
+            src={hairSalonImg}
+            alt="Estudio Corte y Color"
+            class="salon-img"
+          />
+          <div class="glow-effect"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .allied-section {
+    padding: 5rem 0;
+    background: var(--gradient-cream);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .allied-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  /* HEADER LOCAL (Sustituye al SectionHeading) */
+  .header {
+    margin-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-body);
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+  }
+
+  /* TEXTOS */
+  .main-text {
+    color: var(--muted-text);
+    font-family: var(--font-body);
+    line-height: 1.625;
+    margin-bottom: 1rem;
+  }
+
+  .business-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+
+  .business-desc {
+    color: var(--muted-text);
+    font-family: var(--font-body);
+    line-height: 1.625;
+    margin-bottom: 1.5rem;
+  }
+
+  /* BOTÓN */
+  .btn-outline {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  /* IMAGEN */
+  .relative-wrapper {
+    position: relative;
+  }
+
+  .salon-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-rose-lg);
+  }
+
+  .glow-effect {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: var(--gradient-rose);
+    opacity: 0.2;
+    filter: blur(24px);
+    z-index: -1;
+  }
+
+  /* RESPONSIVE: DESKTOP */
+  @media (min-width: 768px) {
+    .allied-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .title {
+      font-size: 2.25rem;
+    }
+  }
+</style>
