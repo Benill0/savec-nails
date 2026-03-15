@@ -9,56 +9,13 @@ import {
   Services,
   WhyUs,
 } from "../components/pages/home";
+import { pagesData } from "../data/pages";
 import Layout from "../layouts/Layout.astro";
 
-// Placeholders para imágenes
-const heroImg =
-  "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=1920";
-const nails1 =
-  "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=800";
-const hairSalon =
-  "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800";
-const nails2 =
-  "https://images.unsplash.com/photo-1632345033839-24ec99834460?auto=format&fit=crop&q=80&w=1200";
-
-const WHATSAPP_LINK =
-  "https://wa.me/51999999999?text=Hola%2C%20quiero%20reservar%20una%20cita";
-
-const services = [
-  "Manicura Clásica",
-  "Manicura Semipermanente",
-  "Soft Gel",
-  "Gel de Construcción",
-  "Uñas Acrílicas",
-  "Pedicura Especializada",
-  "Spa de Pies",
-];
-
-const whyUs = [
-  {
-    icon: "lucide:heart",
-    title: "Atención personalizada",
-    desc: "Cada servicio se adapta a tu estilo y necesidad.",
-  },
-  {
-    icon: "lucide:gem",
-    title: "Productos premium",
-    desc: "Trabajamos con marcas certificadas de alta calidad.",
-  },
-  {
-    icon: "lucide:shield-check",
-    title: "Protocolos de higiene",
-    desc: "Esterilización y desinfección en cada atención.",
-  },
-  {
-    icon: "lucide:star",
-    title: "Ambiente exclusivo",
-    desc: "Espacio cómodo, moderno y pensado para tu bienestar.",
-  },
-];
+const page = pagesData.home;
 ---
 
-<Layout title="Savec Nails | Villa El Salvador">
+<Layout title={page.title} description={page.description}>
   <Hero />
   <HowItWork />
   <Services />

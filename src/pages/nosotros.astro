@@ -1,9 +1,12 @@
 ---
 import { AboutUs, Coffee, Hero } from "../components/pages/about";
+import { pagesData } from "../data/pages";
 import Layout from "../layouts/Layout.astro";
+
+const page = pagesData.about;
 ---
 
-<Layout title="Savec Nails | Nosotros">
+<Layout title={page.title} description={page.description}>
   <Hero />
   <AboutUs />
   <Coffee />

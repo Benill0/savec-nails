@@ -1,9 +1,12 @@
 ---
 import { Hero, ListServices } from "../components/pages/services";
+import { pagesData } from "../data/pages";
 import Layout from "../layouts/Layout.astro";
+
+const page = pagesData.services;
 ---
 
-<Layout>
+<Layout title={page.title} description={page.description}>
   <Hero />
   <ListServices />
 </Layout>

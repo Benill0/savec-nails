@@ -1,9 +1,12 @@
 ---
 import { CTA, GalleryPictures, Hero } from "../components/pages/gallery";
+import { pagesData } from "../data/pages";
 import Layout from "../layouts/Layout.astro";
+
+const page = pagesData.gallery;
 ---
 
-<Layout>
+<Layout title={page.title} description={page.description}>
   <Hero />
   <GalleryPictures />
   <CTA />

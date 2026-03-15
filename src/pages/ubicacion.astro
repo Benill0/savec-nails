@@ -1,9 +1,12 @@
 ---
 import { Hero, LocationInfo } from "../components/pages/location";
+import { pagesData } from "../data/pages";
 import Layout from "../layouts/Layout.astro";
+
+const page = pagesData.location;
 ---
 
-<Layout>
+<Layout title={page.title} description={page.description}>
   <Hero />
   <LocationInfo />
 </Layout>
