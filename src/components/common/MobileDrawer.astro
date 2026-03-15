@@ -1,0 +1,326 @@
+---
+import { Icon } from "astro-icon/components";
+import { navItems } from "../../data/navigation";
+import { socialLinks } from "../../data/socials"; // Asumiendo que tienes TikTok, Instagram, etc.
+
+const { pathname } = Astro.url;
+const currentPath = pathname.replace(/\/$/, "") || "/";
+
+const linkContact =
+  "https://wa.me/51902128282?text=Hola%2C%20quiero%20reservar%20una%20cita";
+---
+
+<div
+  class="mobile-overlay"
+  id="mobile-menu"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
+>
+  <button class="close-btn" id="menu-close" aria-label="Cerrar menú">
+    <Icon name="lucide:x" size={24} />
+  </button>
+
+  <div class="menu-blob" aria-hidden="true"></div>
+  <div class="menu-blob menu-blob--2" aria-hidden="true"></div>
+
+  <div class="menu-scroll-area">
+    <nav class="menu-nav">
+      <ul class="menu-list">
+        {
+          navItems.map((item, i) => (
+            <li class="menu-item" style={`--i: ${i}`}>
+              <a
+                href={item.href}
+                class="menu-link"
+                data-selected={currentPath === item.href}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="menu-footer">
+        <a
+          href={linkContact}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-cta-mobile"
+        >
+          💅 Reservar Cita
+        </a>
+
+        <div class="socials-wrapper">
+          <p class="socials-label">Síguenos</p>
+          <div class="socials-list">
+            {
+              socialLinks.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  class="social-icon"
+                  aria-label={social.name}
+                >
+                  <Icon name={social.icon} size={24} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--background);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .menu-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8rem 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 210;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--muted);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-main);
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .close-btn:hover {
+    background: var(--secondary);
+    transform: rotate(90deg);
+  }
+
+  .menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: min-content; /* Asegura que el contenido no se corte */
+  }
+
+  .menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .menu-link {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: clamp(1.5rem, 6.5vw, 2.25rem);
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition:
+      color 0.2s ease,
+      padding-left 0.2s ease;
+  }
+
+  .menu-link:hover {
+    color: var(--primary);
+    padding-left: 0.5rem;
+  }
+
+  .menu-link[data-selected="true"] {
+    color: var(--primary);
+    padding-left: 0.75rem;
+  }
+
+  .menu-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.4s ease 0.35s,
+      transform 0.4s ease 0.35s;
+  }
+
+  .mobile-overlay.is-open .menu-footer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .socials-wrapper {
+    margin-top: 1.75rem;
+    text-align: center;
+  }
+
+  .socials-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted-text);
+    margin-bottom: 0.875rem;
+    font-weight: 600;
+  }
+
+  .socials-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.875rem;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-main);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-rose);
+  }
+
+  .btn-cta-mobile {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
+    background: var(--gradient-rose);
+    color: white;
+    font-size: var(--text-base);
+    font-weight: 700;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: var(--shadow-rose);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* BLOBS */
+  .menu-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .menu-blob:first-of-type {
+    top: -40px;
+    right: -40px;
+    width: 280px;
+    height: 280px;
+    background: var(--gradient-rose);
+    opacity: 0.15;
+  }
+  .menu-blob--2 {
+    bottom: 0;
+    left: -40px;
+    width: 220px;
+    height: 220px;
+    background: var(--gradient-gold);
+    opacity: 0.1;
+  }
+
+  /* Animación de items */
+  .menu-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+    transition-delay: calc(var(--i) * 0.08s);
+  }
+
+  .mobile-overlay.is-open .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (min-width: 64rem) {
+    .mobile-overlay {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const overlay = document.getElementById("mobile-menu");
+  const closeBtn = document.getElementById("menu-close");
+  const menuLinks = document.querySelectorAll(".menu-link");
+
+  function openMenu() {
+    if (!overlay || !toggle) return;
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    if (!overlay || !toggle) return;
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  toggle?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>

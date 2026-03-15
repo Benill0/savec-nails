@@ -9,4 +9,9 @@ export const socialLinks = [
     href: "https://facebook.com/...",
     icon: "lucide:facebook",
   },
+  {
+    name: "TikTok",
+    href: "https://tiktok.com/@...",
+    icon: "lucide:facebook",
+  },
 ];
