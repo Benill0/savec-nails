@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.1",
     "@fontsource-variable/montserrat": "^5.2.8",
     "@iconify-json/lucide": "^1.2.96",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^5.17.1",
     "astro-icon": "^1.1.5"
   },
