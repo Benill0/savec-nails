@@ -1,17 +1,17 @@
 export const socialLinks = [
   {
     name: "Instagram",
-    href: "https://instagram.com/...",
+    href: "https://www.instagram.com/unassavec",
     icon: "lucide:instagram",
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/...",
+    href: "https://www.facebook.com/ManicureSavecNails",
     icon: "lucide:facebook",
   },
   {
     name: "TikTok",
-    href: "https://tiktok.com/@...",
-    icon: "lucide:facebook",
+    href: "https://www.tiktok.com/@unassavec",
+    icon: "tiktok",
   },
 ];

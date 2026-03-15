@@ -1,10 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
+import Tiktok from "../../assets/tiktok.astro";
 import { contactInfo } from "../../data/contact";
 import { navItems } from "../../data/navigation";
 import { socialLinks } from "../../data/socials";
 
 const currentYear = new Date().getFullYear();
+const whatsappLink = `${contactInfo.whatsapp}?text=Hola%2C%20quiero%20reservar%20una%20cita`;
 ---
 
 <footer class="footer">
@@ -30,19 +32,33 @@ const currentYear = new Date().getFullYear();
       <h4>SÍGUENOS</h4>
       <div class="social-icons">
         {
-          socialLinks.map((social) => (
-            <a
-              href={social.href}
-              aria-label={social.name}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={social.icon} />
-            </a>
-          ))
+          socialLinks.map((social) => {
+            if (social.icon === "tiktok") {
+              return (
+                <a
+                  href={social.href}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Tiktok />
+                </a>
+              );
+            }
+            return (
+              <a
+                href={social.href}
+                aria-label={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name={social.icon} />
+              </a>
+            );
+          })
         }
       </div>
-      <a href={contactInfo.whatsapp} class="btn-footer"> Reservar Cita </a>
+      <a href={whatsappLink} class="btn-footer"> Reservar Cita </a>
     </div>
   </div>
 

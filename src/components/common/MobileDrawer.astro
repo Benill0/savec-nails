@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { navItems } from "../../data/navigation";
 import { socialLinks } from "../../data/socials"; // Asumiendo que tienes TikTok, Instagram, etc.
+import Tiktok from "../../assets/tiktok.astro";
 
 const { pathname } = Astro.url;
 const currentPath = pathname.replace(/\/$/, "") || "/";
@@ -57,16 +58,30 @@ const linkContact =
           <p class="socials-label">Síguenos</p>
           <div class="socials-list">
             {
-              socialLinks.map((social) => (
-                <a
-                  href={social.href}
-                  target="_blank"
-                  class="social-icon"
-                  aria-label={social.name}
-                >
-                  <Icon name={social.icon} size={24} />
-                </a>
-              ))
+              socialLinks.map((social) => {
+                if (social.icon === "tiktok") {
+                  return (
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      class="social-icon"
+                      aria-label={social.name}
+                    >
+                      <Tiktok />
+                    </a>
+                  );
+                }
+                return (
+                  <f
+                    href={social.href}
+                    target="_blank"
+                    class="social-icon"
+                    aria-label={social.name}
+                  >
+                    <Icon name={social.icon} size={24} />
+                  </f>
+                );
+              })
             }
           </div>
         </div>
